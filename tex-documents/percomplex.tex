@@ -1,0 +1,151 @@
+\documentclass[a4paper,english,parskip]{scrartcl}
+\usepackage[margin=1in]{geometry}
+\usepackage[american]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[autostyle]{csquotes}
+\usepackage{graphicx}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[giveninits,autolang=other,style=numeric,backend=biber,block=ragged]{biblatex}
+\usepackage[default]{opensans}
+\usepackage{microtype}
+\usepackage[smaller, printonlyused]{acronym}
+\usepackage[verbose]{wrapfig}
+\usepackage{subcaption}
+\usepackage[hypertexnames=false]{hyperref}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\bibliography{literaturverzeichnis}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\small\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    tabsize=2,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+% --- quote box ---
+\newcommand{\quotebox}[1]{\begin{center}\fcolorbox{white}{blue!15!gray!15}{\begin{minipage}{0.9\linewidth}\vspace{10pt}\center\begin{minipage}{0.8\linewidth}{\space\Huge``}{#1}{\hspace{1.5em}\break\null\Huge\hfill''}\end{minipage}\smallbreak\end{minipage}}\end{center}}
+
+
+\newcommand{\startunderscoreletter}{\catcode`_ 12\relax}
+\newcommand{\stopunderscoreletter}{\catcode`_ 8\relax}
+
+
+\begin{document}
+	\selectlanguage{american}
+	\onehalfspacing
+	%\maketitle
+	
+	\include{titlepage}
+	
+	\tableofcontents
+	
+	\section{Abstract}
+	
+	This work aims to find a way of exploring a well known problem: 
+	
+	\begin{center}
+	\textit{The idea of having three-dimensional numbers.  }
+	\end{center}
+	
+	Till this day only two-dimensional (complex),  four-dimensional (quaternions) and eight-dimensional
+	(octonion) numbers have been introduced to have the property to be invertible (division) \cite{article:100}.
+	
+	\newpage
+	\section{Introduction}
+	
+	Everyone that is familiar with complex numbers and likes them might encounter the question if it's possible 
+	to add more dimensions.
+	
+	In this case the set of complex numbers ($\mathbb{C}$) is defined by:
+	
+	\begin{align*}
+	\text{A complex number} \hspace{3pt} z && z &= a + bi \\
+	\text{with} && i^2 &= -1 \\
+	\text{the real part} && Re(z) &= a \\
+	\text{and the imaginary part} && Im(z) &= b 
+	\end{align*}
+	
+	\begin{wrapfigure}[5]{r}{.4\textwidth}
+	\begin{tikzpicture}
+    \begin{scope}[thick,font=\scriptsize]
+    % Axes:
+    % Are simply drawn using line with the `->` option to make them arrows:
+    % The main labels of the axes can be places using `node`s:
+    \draw [->] (-3,0) -- (3,0) node [above left]  {$Re(z)$};
+    \draw [->] (0,-3) -- (0,3) node [below right] {$Im(z)$};
+
+    \foreach \n in {-2,...,-1,1,2,...,2}{%
+        \draw (\n,-3pt) -- (\n,3pt)   node [above] {$\n$};
+        \draw (-3pt,\n) -- (3pt,\n)   node [right] {$\n i$};
+    }
+    \draw [->] (0,0) -- (2,2)
+    \end{scope}
+	\end{tikzpicture}
+	\end{wrapfigure}
+	
+	A complex number is also called a two-dimensional number because it has two parts: the real part and the 
+	imaginary part that can be plotted to a two-dimensional field.
+	In this work I will not explain the properties of complex numbers and we will therefore move on with 
+	studying percomplex numbers.
+	
+	
+	
+	For this I have made the simple adjustment by adding a third identity to a complex number.
+	The field of Percomplex Number
+	
+	\newpage
+	\section{Literature}
+	
+%	\defbibfilter{penis}{
+%  type=misc or
+%  type=inproceedings
+%  %  type=thesis or
+%%  type=inbook or
+%}
+	
+	\printbibliography[type=article, title={Articles}]
+	\printbibliography[type=thesis, title={Papers}]
+	\printbibliography[type=inbook, title={Book Excerpts}]
+	\printbibliography[type=inproceedings, title={Inproceedings}]
+	
+
+
+\end{document}

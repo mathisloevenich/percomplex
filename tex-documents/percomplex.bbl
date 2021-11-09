@@ -1,0 +1,50 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{article:100}{online}{}
+      \name{author}{1}{}{%
+        {{hash=f44bb0cfa4babe847f0aa6c3c812d8e0}{%
+           family={jpallen},
+           familyi={j\bibinitperiod}}}%
+      }
+      \strng{namehash}{f44bb0cfa4babe847f0aa6c3c812d8e0}
+      \strng{fullhash}{f44bb0cfa4babe847f0aa6c3c812d8e0}
+      \strng{bibnamehash}{f44bb0cfa4babe847f0aa6c3c812d8e0}
+      \strng{authorbibnamehash}{f44bb0cfa4babe847f0aa6c3c812d8e0}
+      \strng{authornamehash}{f44bb0cfa4babe847f0aa6c3c812d8e0}
+      \strng{authorfullhash}{f44bb0cfa4babe847f0aa6c3c812d8e0}
+      \field{sortinit}{j}
+      \field{sortinithash}{c45040a764d616897e7f5b30174d7b92}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{There are no three dimensional numbers}
+      \field{year}{June 30, 2011}
+      \verb{urlraw}
+      \verb https://news.ycombinator.com/item?id=2713630
+      \endverb
+      \verb{url}
+      \verb https://news.ycombinator.com/item?id=2713630
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
