@@ -18,6 +18,7 @@
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage[makeroom]{cancel}
 \usepackage{verbatim}
 \usepackage{tcolorbox}
 \usepackage{listings}
@@ -146,35 +147,79 @@
 	
 	\vspace{15pt}
 	
-	There might be many ways of how to define three-dimensional numbers, but in this case we will focus the
-	most on the property to invert the multiplication of two three-dimensional numbers.
+%	There might be many ways of how to define three-dimensional numbers, but in this case we will focus the
+%	most on the property to invert the multiplication of two three-dimensional numbers.
 	
 	\newpage
 	\section{Exploration}
 	
-To explore which properties are needed to have the most satisfying algebraic group of three-dimensional numbers, let's define a three-dimensional number as followed:
+To explore which properties are needed to have one or more satisfying algebraic groups of three-dimensional numbers, let's define a three-dimensional number as followed:
 
 \begin{tcolorbox}[title=Percomplex Numbers,colframe=blue!60, colback=blue!5]
+\vspace{-20pt}
 \begin{align*}
-\mathfrak{p} &= a + bi + cp && a,b,c \in \mathbb{R} \hspace{3pt} \text{and} \hspace{3pt} i,p \hspace{3pt} \text{are undefined for now ...} \\
-\mathfrak{p} &\in \mathfrak{P} 
+\mathfrak{p} &= a + bi + cp && a,b,c \in \mathbb{R} \hspace{3pt} \text{and} \hspace{3pt} i,p \hspace{3pt} \text{not real (undefined for now ...)} \\
+\mathfrak{p} &\in \mathfrak{P} && \text{The set of percomplex numbers is defined as} \hspace{3pt} \mathfrak{P}
 \end{align*}
+
 \end{tcolorbox}
 
-The strucure $(\mathfrak{P}, +)$ is an infinate abelian group.
+\subsection{Algebraic Group Definiton}
+
+An algebraic group can be categorized if it follows at least one or more of the following rules
+in the same order.
+
+\vspace{-10pt}
+\paragraph{1. Group is Closed}
+Each illustration $\circ$ in a Group $G$ results in a member of the Group: \\
+\begin{equation*}
+	\forall x,y \in G \Rightarrow x \circ y = g \hspace{3pt} \text{with} \hspace{3pt} g \in G
+\end{equation*}
+
+\vspace{-10pt}
+\paragraph{2. Associative} 
+The illustration is associative \\
+\begin{equation*}
+\forall x,y, z \in G \Rightarrow (x \circ y) \circ z = x \circ (y \circ z)
+\end{equation*}
+
+\vspace{-10pt}
+\paragraph{3. Neutral Element}
+It exists a neutral element $e \in G$ for all elements in $G$ such that:
+\begin{equation*}
+\forall x \in G : x \circ e = x
+\end{equation*}
+
+\vspace{-10pt}
+\paragraph{4. Inverse Element}
+There is an inverse Element $x^{-1} \in G$ for all $x \in G$
+\begin{equation*}
+\forall x \in G : x \circ x^{-1} = e 
+\end{equation*}
+
+\vspace{-10pt}
+\paragraph{5. Abelian}
+A group is abelian if the commutative law is applicable
+\begin{equation*}
+\forall x,y \in G : x \circ y = y \circ x
+\end{equation*}
+
+\subsection{Thoughts}
+
+The strucure $(\mathfrak{P}, +)$ is an infinite abelian group.
 I will leave the proof open as it's trivial.
 I will focus more on the strucuture $(\mathfrak{P}, \cdot)$ in the following.
 
-Percomplex Multiplication is not necessarily closed.
-
+Percomplex Multiplication $(\mathfrak{P}, \cdot)$ is not necessarily closed.
 \begin{align*}
 \mathfrak{p}_1 \cdot \mathfrak{p}_2 = \hspace{3pt} & (x_1 + x_2i +x_3p) \cdot (y_1 + y_2i + y_3p)
 &&& x_1,x_2,x_3, y_1,y_2,y_3 \in \mathbb{R} \\
 = \hspace{3pt} & (x_1 \cdot y_1 + x_1 \cdot y_2i + x_1 \cdot y_3p) &+ \\
-& (x_2i \cdot y_1 + x_2i \cdot y_2i + x_2i \cdot y_3p) &+ \\
-& (x_3p \cdot y_1 + x_3p \cdot y_2i + x_3p \cdot x_3p)  \\
+& (x_2i \cdot y_1 + x_2i \cdot y_2i + \underline{x_2i \cdot y_3p}) &+ \\
+& (x_3p \cdot y_1 + \underline{x_3p \cdot y_2i} + x_3p \cdot x_3p)  \\
 \end{align*}
 
+\vspace{-30pt}
 It depends on how we define the multiplication of $i$ and $p$.
 
 There are a few options that need to be viewed to keep any percomplex number $\mathfrak{p}$ three-dimensional
@@ -182,9 +227,22 @@ There are a few options that need to be viewed to keep any percomplex number $\m
 \begin{align*}
 1) && i \cdot p &= i \\
 2) && i \cdot p &= p \\
-3) && i \cdot p &= n, & n \in \mathbb{R} \\
-4) && i \cdot p &\neq p \cdot i
+3) && i \cdot p &= n & n \in \mathbb{R} \\
+4) && i \cdot p &\neq p \cdot i  & \text{not abelian}
 \end{align*}
+
+We consider the first three options (1-3) to be abelian, meaning that $i \cdot p = p \cdot i$. \\
+The first two properties are coherent and we can proof that these can not be used as it's possible to create an contradiction. 
+For this it's not even necessary to define the properties of $i$ and $p$.
+
+\begin{align*}
+&& i \cdot p &= i  & | : i \\
+\iff && p &= 1 \rightarrow \bot  \hspace{15pt} p \hspace{3pt} \text{can not be real}
+\end{align*}
+
+The same is true for the second option.
+Therefore it remains to look at the third and fourth option, 
+which need to be viewed with a definition of $i$ and $p$.
 
 
 An important property for such a group is to be invertible, which means
@@ -210,17 +268,91 @@ Therefore I will spend my effort on finding a way to multiply two percomplex num
 &\stackrel{!}{=} n &&  n \in \mathbb{R}
 \end{align*}
 
-It makes sense to try the same approach as with complex numbers.
+It makes sense to try the same approach as with complex numbers ...
 \begin{align*}
 \mathfrak{p} \cdot \overline{\mathfrak{p}} = \hspace{3pt}& (x_1 + x_2i +x_3p) \cdot (x_1 - x_2i - x_3p) &&& x_1,x_2,x_3 \in \mathbb{R} \\
-= \hspace{3pt} & (x_1 \cdot x_1 + x_1 \cdot x_2i + x_1 \cdot x_3p)  &+ \\
-& (x_2i \cdot x_1 + x_2i \cdot x_2i + x_2i \cdot x_3p) &+ \\
-& (x_3p \cdot x_1 + x_3p \cdot x_2i + x_3p \cdot x_3p)
+%= \hspace{3pt} & x_1 \cdot x_1 + x_1 \cdot (-x_2i) + x_1 \cdot (-x_3p)  &+ \\
+%& x_2i \cdot x_1 + x_2i \cdot (-x_2i) + x_2i \cdot (-x_3p) &+ \\
+%& x_3p \cdot x_1 + x_3p \cdot (-x_2i) + x_3p \cdot (-x_3p) \\
+= \hspace{3pt} & x_1 \cdot x_1 + \cancel{x_1 \cdot (-x_2i)} + \cancel{x_1 \cdot (-x_3p)}  &+ \\
+& \cancel{x_2i \cdot x_1} + x_2i \cdot (-x_2i) + x_2i \cdot (-x_3p) &+ \\
+& \cancel{x_3p \cdot x_1} + x_3p \cdot (-x_2i) + x_3p \cdot (-x_3p) \\
+= \hspace{3pt} & x_1^2 - x_2^2 \cdot i \cdot i - x_2x_3 \cdot i \cdot p - x_2x_3 \cdot p \cdot i - x_3^2 \cdot p \cdot p
 \end{align*}
 
-Obviously if we multiply two percomplex numbers, we will get the quantity $i \cdot p$ or $p \cdot i$ , which is outside of the set if we don't apply a rule for that to be inside the set as well.
+I will try to produce a similar outcome as with the complex numbers, namely that \\
+$\mathfrak{p} \cdot \overline{\mathfrak{p}} = x^2 + y^2 + z^2 $.
+Not only is this a real number, but also it's the squared distance of a percomplex number plotted into the three-dimenisional plane.
 
-However if we apply rules to make $i \cdot p$ or $p \cdot i$ a part of the set again
+To achieve this it's necessary to let $i^2 = -1$ as well as $p^2 = -1 $.
+
+\begin{align*}
+\mathfrak{p} \cdot \overline{\mathfrak{p}} = \hspace{3pt}& (x_1 + x_2i +x_3p) \cdot (x_1 - x_2i - x_3p) &&& x_1,x_2,x_3 \in \mathbb{R} \\
+%= \hspace{3pt} & x_1 \cdot x_1 + x_1 \cdot (-x_2i) + x_1 \cdot (-x_3p)  &+ \\
+%& x_2i \cdot x_1 + x_2i \cdot (-x_2i) + x_2i \cdot (-x_3p) &+ \\
+%& x_3p \cdot x_1 + x_3p \cdot (-x_2i) + x_3p \cdot (-x_3p) \\
+= \hspace{3pt} & x_1 \cdot x_1 + \cancel{x_1 \cdot (-x_2i)} + \cancel{x_1 \cdot (-x_3p)}  &+ \\
+& \cancel{x_2i \cdot x_1} + x_2i \cdot (-x_2i) + x_2i \cdot (-x_3p) &+ \\
+& \cancel{x_3p \cdot x_1} + x_3p \cdot (-x_2i) + x_3p \cdot (-x_3p) \\
+= \hspace{3pt} & x_1^2 - x_2^2 \cdot i \cdot i - x_2x_3 \cdot i \cdot p - x_2x_3 \cdot p \cdot i - x_3^2 \cdot p \cdot p \\
+= \hspace{3pt} & x_1^2 + x_2^2 - \underline{x_2x_3 \cdot i \cdot p} - \underline{x_2x_3 \cdot p \cdot i} + x_3^2
+\end{align*}
+
+
+Obviously we still have to deal with the quantities $i \cdot p$ or $p \cdot i$ as it's outside of the group.
+If we think back to the options above there are only two possible ways to define the behavior of the multiplication of $i$ and $p$ to get rid of the terms $x_2x_3 \cdot i \cdot p$ and $x_2x_3 \cdot p \cdot i$
+
+\begin{align*}
+1) && i \cdot p &= 0  \\
+2) && i \cdot p &=  - p \cdot i
+\end{align*}
+
+The first option is obviously not working as it leads to many contradictions
+\begin{equation*}
+i \cdot p = 0 \iff i \cdot i \cdot p = i \cdot 0 \iff (i \cdot i) \cdot p = 0 \iff -p = 0\hspace{3pt}  \bot \hspace{3pt} p \hspace{3pt} \text{is not real}
+\end{equation*}
+
+Therefore only one option is left namely the definition that $i \cdot p = - p \cdot i$. \\
+This does not necessarily solve the issue that the multiplication is closed.
+We need to add an additional condition in order to create a closed multiplication for a subset of numbers. \\
+We can derive that condition by looking back at the multiplication of two distinct percomplex numbers
+with the definition of $i$ and $p$ that we have so far.
+
+\begin{align*}
+\mathfrak{p}_1 \cdot \mathfrak{p}_2 = \hspace{3pt} & (x_1 + x_2i +x_3p) \cdot (y_1 + y_2i + y_3p)
+&&& x_1,x_2,x_3, y_1,y_2,y_3 \in \mathbb{R} \\
+= \hspace{3pt} & x_1 \cdot y_1 + x_1 \cdot y_2i + x_1 \cdot y_3p &+ \\
+& x_2i \cdot y_1 + x_2i \cdot y_2i + x_2i \cdot y_3p &+ \\
+& x_3p \cdot y_1 + x_3p \cdot y_2i + x_3p \cdot x_3p  \\
+= \hspace{3pt} & x_1 \cdot y_1 + (x_1y_2 + x_2y_1) \cdot i + (x_1y_3 + x_3y_1) \cdot p + \underline{(x_2y_3 - x_3y_2)} \cdot i \cdot p
+\Rightarrow x_2y_3 - x_3y_2 = 0 \iff x_2y_3 = x_3y_2
+\end{align*}
+
+From this equation it follows that for any multiplication of two percomplex numbers
+the following condition must hold for all percomplex numbers $\forall \mathfrak{p}_1, \mathfrak{p}_2  \in \mathfrak{P}$ in order to remove $i \cdot p$ from the equation:
+\begin{align*} 
+&&  \mathfrak{p}_1 &= x_1 + x_2i + x_3p \\
+&& \mathfrak{p}_2 &= y_1 + y_2i + y_3p \\
+ \text{with} && x_2 \cdot y_3 &= x_3 \cdot y_2
+\end{align*}
+
+This leads to the following definiton of percomplex numbers:
+
+\begin{tcolorbox}[title=Percomplex Numbers,colframe=blue!60, colback=blue!5]
+\vspace{-20pt}
+\begin{align*}
+\text{percomplex number} && \mathfrak{p} &= a + bi + cp && a,b,c \in \mathbb{R} \\
+\text{imaginary unit} && i^2 &= -1 \\
+\text{perplex unit} && p^2 &= -1 \\
+\text{unreal product} && i \cdot p &= - p \cdot i \\
+\text{condition} && \forall \hspace{3pt} \substack{\mathfrak{p}_1=x_1 + x_2i + x_3p \\ \mathfrak{p}_2=y_1 + y_2i + y_3p}  \in \mathfrak{P}: x_2 \cdot y_3 &= x_3 \cdot y_2 && x_1,x_2,x_3, y_1,y_2,y_3 \in \mathbb{R}
+\end{align*}
+\end{tcolorbox}
+
+\subsection{Proof}
+
+With the previous definition of three-dimensional numbers, namely percomplex
+
 
 	
 	\newpage
